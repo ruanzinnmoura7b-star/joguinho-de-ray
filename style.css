@@ -1,0 +1,249 @@
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top, #ffb3c6, #ff4f81 45%, #2b0f1f 100%);
+  color: white;
+  overflow: hidden;
+}
+
+.background-glow {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.35), transparent 25%),
+    radial-gradient(circle at 80% 10%, rgba(255,182,193,0.35), transparent 25%),
+    radial-gradient(circle at 50% 90%, rgba(255,79,129,0.35), transparent 30%);
+  z-index: 0;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  z-index: 2;
+}
+
+.screen {
+  display: none;
+  width: 100%;
+  min-height: 100vh;
+  padding: 24px;
+  text-align: center;
+}
+
+.screen.active {
+  display: block;
+}
+
+.glass-card,
+.final-card {
+  max-width: 390px;
+  margin: 95px auto 0;
+  padding: 28px;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.25);
+  animation: pop 0.45s ease;
+}
+
+.home-card {
+  margin-top: 120px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.25);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-size: 36px;
+  margin: 10px 0;
+}
+
+h2 {
+  font-size: 27px;
+  margin: 8px 0;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+button {
+  border: none;
+  padding: 15px 24px;
+  border-radius: 999px;
+  background: white;
+  color: #ff3f7f;
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 16px;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.25);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+.game-header {
+  position: relative;
+  z-index: 20;
+  padding: 10px 0 5px;
+}
+
+.status {
+  display: flex;
+  justify-content: space-between;
+  font-size: 19px;
+  font-weight: bold;
+  margin: 14px 0;
+}
+
+.bar,
+.loadingBar,
+.hold-bar {
+  width: 100%;
+  height: 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.35);
+  overflow: hidden;
+}
+
+#progress,
+#loadingProgress,
+#holdProgress {
+  width: 0%;
+  height: 100%;
+  background: white;
+  transition: 0.25s;
+}
+
+#tipText {
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+#gameArea {
+  position: fixed;
+  top: 160px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.item {
+  position: absolute;
+  top: -70px;
+  font-size: 44px;
+  padding: 22px;
+  margin: -22px;
+  animation: fall linear forwards;
+  user-select: none;
+  z-index: 30;
+  touch-action: manipulation;
+}
+
+@keyframes fall {
+  to {
+    top: 100vh;
+  }
+}
+
+input {
+  width: 100%;
+  padding: 16px;
+  border-radius: 20px;
+  border: none;
+  font-size: 17px;
+  text-align: center;
+  margin-top: 15px;
+  outline: none;
+}
+
+.final-screen {
+  background: rgba(8, 3, 12, 0.96);
+  overflow-y: auto;
+}
+
+.final-card {
+  margin: 35px auto;
+  min-height: auto;
+  background: rgba(255,255,255,0.08);
+}
+
+.moon {
+  font-size: 34px;
+}
+
+.bigHeart {
+  font-size: 68px;
+  animation: pulse 1.2s infinite;
+}
+
+#storyText {
+  font-size: 20px;
+  line-height: 1.7;
+  min-height: 190px;
+}
+
+.hidden {
+  display: none;
+}
+
+.floating-heart,
+.final-heart {
+  position: fixed;
+  bottom: -50px;
+  font-size: 24px;
+  opacity: 0.75;
+  animation: floatUp 7s linear forwards;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.final-heart {
+  z-index: 5;
+  font-size: 32px;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-115vh);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  50% {
+    transform: scale(1.18);
+  }
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
